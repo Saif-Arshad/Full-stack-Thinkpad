@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+    <style>
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+ <header>
+        <h1><%=name %></h1>
+    </header>
+    <% notesAll.forEach(function(note){ %>
+        <h1><%= note.title %></h1>
+        <h4><%= note.Discription %></h4>
+        <p><%= note.Date %></p>
+    <% }) %> 
+    
+</body>
+</html>

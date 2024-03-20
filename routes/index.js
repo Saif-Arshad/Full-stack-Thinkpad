@@ -2,12 +2,27 @@ var express = require('express');
 const passport = require('passport');
 const userModel = require('./users')
 var router = express.Router();
-const ListNotes= require('./Listmodel')
+const NotesModel = require('./Notes')
 const localStrategy = require("passport-local");
 
 
 
 passport.use(new localStrategy(userModel.authenticate()))
+
+// for creating Data  
+
+router.post('/create',isLogIn, async function(req,res){
+  const user= await userModel.findOne({username:req.session.passport.user});
+  var userNotes=await NotesModel.create({
+    userName: user._id,
+    title: req.body.Title,
+    Discription:req.body.Discription
+    })
+    user.NoteList.push(userNotes)
+    await user.save()
+    res.redirect('/post')
+
+    })
 
     // registration route  
     router.post('/register',function(req,res){
@@ -58,13 +73,16 @@ function isLogIn(req,res,next){
 router.get('/', function(req, res, next) {
   res.render('Login');
 });
-router.get('/profile', isLogIn, function(req, res, next) {
-  // const username = req.user.username ;
-  // const username = req.user._id;
-  // ListNotes.create({
-  //   userId: username,
-  // })
-  res.render('MainApp', { title: 'profile', name:username});
+router.get('/Post', isLogIn, async function(req, res, next) {
+  const user= await userModel.findOne({username:req.session.passport.user });
+  const notesAll = await NotesModel.find().populate("userName")
+  res.render('Posting',{name: `${user.username}`,notesAll});
+});
+router.get('/profile', isLogIn,async function(req, res, next) {
+
+  const user= await userModel.findOne({username:req.session.passport.user });
+
+  res.render('MainApp', { title: 'profile' ,user});
 
 });
 
