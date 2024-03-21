@@ -5,6 +5,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/NoteApp")
 const UserSchema = mongoose.Schema({
   username:String,
   password:String,
+  email:String,
   NoteList:[{
     type:mongoose.Schema.Types.ObjectId,
     ref:"Notes"

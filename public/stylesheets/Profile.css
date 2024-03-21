@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+.All{
+    display: flex;
+}
+header{
+    width: 250px;
+    position: fixed;
+    background: rgb(73, 57, 113);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    color: white;
+}
+header svg{
+    height: 35px;
+    fill: #ffff;
+    width: 30px;
+}
+header button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    border: 1px solid rgb(73, 57, 113);
+    padding: .5rem;
+    margin: 6px 0 ;
+    color: white;
+    background: transparent;
+    border-radius: 30px;
+    transition: all .5s ease-out;
+    width: 150px;
+    cursor: pointer;
+}
+
+.active{
+    background: white;
+    color: black;
+    border-color: white ;
+}
+header button:hover{
+background: white;
+color: black;
+
+    }

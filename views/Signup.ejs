@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/LoginForm.css">
+</head>
+<body>
+    <div class="form-container">
+        <p class="title">SignUp Form</p>
+        <form class="form" action="/register" method="post">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" required id="username" placeholder="">
+            </div>
+            <div class="input-group">
+                <label for="username">Email (optional)</label>
+                <input type="email" name="email" id="username" placeholder="">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" required id="password" placeholder="">
+
+            </div>
+            <button class="sign">Sign Up </button>
+        </form>
+
+        
+        <p class="signup">Already have an account?
+            <a rel="noopener noreferrer" href="/loginpage" class="">Log in</a>
+        </p>
+    </div>
+</body>
+</html>

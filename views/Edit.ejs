@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <link rel="stylesheet" href="/stylesheets/LoginForm.css">
+
+</head>
+<body>
+    <div class="form-container">
+        <p class="title">Edit Form</p>
+        <form class="form" action="/update" method="post">
+            <div class="input-group">
+                <label for="username">Title Name</label>
+                <input type="text" name="Title" id="username"  value="<%= note.title %>" placeholder="">
+            </div>
+            <div class="input-group">
+                <label for="username">Id (optional)</label>
+                <input type="text" value="<%= note._id %>" name="Id" id="username" placeholder="">
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Discription</label>
+                <textarea name="Discription"  id="textEdit" cols="33" rows="10"> <%= note.Discription %></textarea>
+            </div>
+            <button class="sign">Submit Changes</button>
+        </form>
+
+        
+   
+    </div>
+</body>
+</html>
