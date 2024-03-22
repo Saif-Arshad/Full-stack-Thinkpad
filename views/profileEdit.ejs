@@ -11,7 +11,7 @@
         <p class="title">Edit Profile</p>
         <form class="form" action="/updateprofiles" method="post"  enctype="multipart/form-data">
             <div class="input-group">
-                <input type="file" name="image" id="">
+                <input type="file" name="image" id="#fileInput">
             </div>
             <div class="input-group">
                 <label for="username">Name</label>
@@ -25,7 +25,12 @@
             </div>
             <button class="sign">Edit Now</button>
         </form>
-
+        <script>
+            let fileInput = document.getElementById("fileInput");
+            fileInput. addEventListener("change", function () { if (fileInput. files. length == 0) { 
+                alert("You can't Edit your Profile if you are not giving Image")
+            }}); 
+        </script>
 
     </div>
 </body>
