@@ -4,6 +4,7 @@ const userModel = require('./users')
 var router = express.Router();
 const NotesModel = require('./Notes')
 const localStrategy = require("passport-local");
+const upload = require('./multer');
 
 
 
@@ -20,7 +21,7 @@ router.post('/create',isLogIn, async function(req,res){
     })
     user.NoteList.push(userNotes)
     await user.save()
-    res.redirect('/post')
+    res.redirect('/Profile')
 
     })
 
@@ -78,8 +79,9 @@ router.get('/Loginpage', function(req, res, next) {
   res.render('Loginform');
 });
 
-router.get('/editprofile', function(req, res, next) {
-  res.render('profileEdit');
+router.get('/editprofile',async function(req, res, next) {
+  const Useragya= await userModel.findOne({username:req.session.passport.user });
+  res.render('profileEdit',{User:Useragya});
 });
 router.get('/signupForm', function(req, res, next) {
   res.render('Signup');
@@ -103,27 +105,85 @@ router.get('/delete/:id',isLogIn, async function(req, res, next) {
   });
 
 router.post("/update",isLogIn,async function(req, res){
-  const NoteId= await NotesModel.findOne({_id:req.session.passport.Id });
-  var updatedNote =await NotesModel.updateOne({_id: req.body.Id},
+  // const NoteId= await NotesModel.findOne({_id:req.session.passport.Id });
+    await NotesModel.updateOne({_id: req.body.Id},
       {
         title: req.body.Title,
       Discription:req.body.Discription
     }
     );
-    res.redirect('/post')
+    res.redirect('/Profile')
 })
+router.post("/updateprofiles",isLogIn,upload.single("image"),async function(req, res){
+     
+  const profileUpdate= await userModel.findOneAndUpdate(
+      {username:req.session.passport.user },
+      {
+        username: req.body.username,
+      bio:req.body.Bio,
+    },
+    {new:true}
+    );
+
+    profileUpdate.Image=req.file.filename;
+   
+    await profileUpdate.save()
+    res.redirect('/profile')
+});
 
 router.get('/Post', isLogIn, async function(req, res, next) {
   const user= await userModel.findOne({username:req.session.passport.user });
 
-  res.render('MainApp', { title: 'profile' ,user});
+  res.render('Post');
 });
 router.get('/profile', isLogIn,async function(req, res, next) {
   const user= await userModel.findOne({username:req.session.passport.user });
   const notesAll = await NotesModel.find({userName:user._id}).populate("userName")
-  res.render('Profile',{name: `${user.username}`,notesAll});
+  const whichone= "All Notes"     
+
+  res.render('Profile',{user,notesAll,whichone});
 
 
 });
+router.get('/profile/thisweek',isLogIn, async function(req, res, next) {
+  const user= await userModel.findOne({username:req.session.passport.user });
+  const whichone= "This Week"
+  const currentDate = new Date();
+  const oneWeekAgo = new Date(currentDate);
+        oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+        const  notesAll= await NotesModel.find({
+          userName: user._id,
+          Date: { $gte: oneWeekAgo, $lte: currentDate }
+      }).populate("userName");
+  res.render('Profile',{user,notesAll,whichone});
+})
+router.get('/profile/today',isLogIn, async function(req, res, next) {
+  const user = await userModel.findOne({ username: req.session.passport.user });
+  const whichone= "Today"
+  const currentDate = new Date();
+  const startOfDay = new Date(currentDate);
+  startOfDay.setHours(0, 0, 0, 0);
+  const endOfDay = new Date(currentDate);
+  endOfDay.setHours(23, 59, 59, 999);
+
+  const notesAll = await NotesModel.find({
+      userName: user._id,
+      Date: { $gte: startOfDay, $lte: endOfDay }
+  }).populate("userName");
+  res.render('Profile',{user,notesAll,whichone});
+
+})
+router.get('/profile/thismonth',isLogIn, async function(req, res, next) {
+  const user = await userModel.findOne({ username: req.session.passport.user });
+  const whichone= "This Month"     
+  const currentDate = new Date();
+        const startOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+        const endOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0, 23, 59, 59, 999);
+        const notesAll = await NotesModel.find({
+            userName: user._id,
+            Date: { $gte: startOfMonth, $lte: endOfMonth }
+        }).populate("userName");
+        res.render('Profile',{user,notesAll,whichone});
+})
 
 module.exports = router;

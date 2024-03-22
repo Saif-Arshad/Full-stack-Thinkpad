@@ -9,18 +9,18 @@
 <body>
     <div class="form-container">
         <p class="title">Edit Profile</p>
-        <form class="form" enctype="multipart/form-data" >
+        <form class="form" action="/updateprofiles" method="post"  enctype="multipart/form-data">
             <div class="input-group">
                 <input type="file" name="image" id="">
             </div>
             <div class="input-group">
                 <label for="username">Name</label>
-                <input type="text" name="username" id="username" placeholder="">
+                <input type="text" value="<%=User.username%>" name="username" id="username" placeholder="">
             </div>
          
             <div class="input-group">
                 <label for="password">Bio</label>
-                <input type="text" name="Bio" id="password" placeholder="">
+                <input type="text" value="<%=User.bio%>" name="Bio" id="password" placeholder="">
 
             </div>
             <button class="sign">Edit Now</button>

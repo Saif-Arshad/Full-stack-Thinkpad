@@ -7,7 +7,10 @@
 	padding: 0;
 	margin: 0;
 }
+a{
 
+    text-decoration-line: none  !important;
+}
 nav {
 	user-select: none;
 	-webkit-user-select: none;
@@ -21,9 +24,6 @@ nav ul li {
 	outline: 0;
 }
 
-nav ul li a {
-	text-decoration: none;
-}
 
 body {
 	font-family: "Nunito", sans-serif;
@@ -41,7 +41,7 @@ main {
 	min-height: 100vh;
     /* flex-direction: column; */
 	width: 100%;
-	margin:5px 40px 40px 40px;
+	margin:40px;
 	background: rgb(254, 254, 254);
 	box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset,
 		0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);
@@ -55,13 +55,17 @@ main {
     align-items: center;
 	/* overflow: hidden; */
     flex-wrap: wrap;
-    width: 190px;
+    width: 250px;
 /* /\    justify-content: space-between; */ 
 	background: rgb(73, 57, 113);
 	/* padding: 10px 10px; */
 	border-radius: 15px 0 0 15px;
 	font-family: "Roboto", sans-serif;
 }
+
+/* profile styles  start  */
+
+
 .profile{
     display: flex;
     margin-top: 10px;
@@ -69,13 +73,20 @@ main {
     justify-content: center;
     flex-direction: column;
 }
+.profile a{
+    color: #e7f045;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 200;
+    letter-spacing: .5px;
+}
 .profile img{
     border-radius: 50%;
     height: 80px;
     width: 80px;
     object-fit: cover;
 }
-.main-menu h4 {
+.main-menu .profile h4 {
 	display: block;
 	font-size: 1.2rem;
 	font-weight: 500;
@@ -87,73 +98,234 @@ main {
 .profile p{
     color: white;
     font-size: .9rem;
+	text-align: center;
     width: 90%;
 }
-h5:hover{
-    color: #e7f045;
-}
-a{
 
-    text-decoration-line: none  !important;
-}
- h5 {   
-cursor: pointer;
-    margin-top: 40px;
-font-size: 22px;
-font-weight: 100;
-color: #e7f045;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
-}
-h5 svg{
-        height: 30px;
-    
-}
+
+/* profile styles  End  */
+
+
+
 /* .main-menu ul{
     display: flex;
 } */
+
+.Main-content{
+	display: flex;
+	height: 100%;
+	width: 100%;
+	flex-direction: column;
+	/* align-items: center; */
+	/* justify-content: center; */
+
+}
+
+/* Notes styles start  */
+
+.Main-content .NotesList{
+	display: flex;
+	margin: 30px;
+	flex-direction: column;
+	/* align-items: center; */
+	justify-content: center;
+	width: 100%;
+}
+.Main-content .NotesList div{
+	margin-bottom: 20px;
+}
+.NotesList button svg{
+	height:20px;
+	width:20px;
+	transition: all .5s;
+
+}
+.NotesList button svg:hover{
+	transform: scale(1.1);
+	 fill: #3e2183;
+}
+.NotesList button{
+	border: none;
+	background: transparent;
+	margin-left: 10px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+.Main-content .NotesList{
+	width: 100%;
+}
+.Main-content .NotesList p{
+	color: #484b11;
+	width: 90%;
+	font-size: 14px;
+}
+.Main-content .NotesList h4{
+	font-size: 19px;
+	font-weight: 400;
+}
+
+.Main-content .NotesList h1{
+	text-transform: uppercase;
+	font-size: 25px;
+	font-weight: 400;
+}
+
+/* Notes styles end  */
+
+/* header styles start  */
+
+.Main-content header {
+	width: 100%;
+	/* background: #000; */
+	display: flex;
+	flex-direction: row;
+	/* justify-content: center; */
+	/* align-items: center; */
+	padding: 10px 0;
+}
+.Main-content h3{
+	font-size: 22px;
+	font-weight: 900;
+}
+
+	/* .Main-content header div{
+	/* margin-left: 40px; 
+	display: flex;
+	justify-content: center;
+} */
+
+/* header styles end  */
+
+
+
+/* Nav Button End   */
 
 .nav-item {
 	position: relative;
 	display: block;
 }
-.nav-item:nth-of-type(1){
-    margin-top: 40px;
+
+ul li{
+	list-style-type:  none; ;
 }
-.nav-item a {
+.button {
 	position: relative;
-	display: flex;
-	flex-direction: row;
-	/* align-items: center; */
-	/* justify-content: center; */
-	color: #fff;
-	font-size: 1rem;
-	padding: 15px 0;
-	margin-left: 10px;
-    margin-top: 10px;
-    border-radius: 15px;
-    transition: all .5s ease-in-out;
-}
-.nav-item a:hover{
-    color: rgb(73, 57, 113);
-    background: white;
-    background: #cbcaca;
-}
-.profile a{
-    color: #e7f045;
-    margin-top: 10px;
-    font-size: 15px;
-    font-weight: 200;
-    letter-spacing: .5px;
-}
-.nav-text {
-	display: block;
-    margin-left: 20px;
-	width: 120px;
-	height: 20px;
-    box-sizing: content-box !important; 
+	overflow: hidden;
+	height: 3rem;
+	font-size: .9rem;
+	margin-top: 10px;
+	padding: 0 2rem;
+	border-radius: 1.5rem;
 	font-family: "Mulish", sans-serif;
+	background: transparent;
+	background-size: 400%;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	transition: all 0.2s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .button:hover::before {
+	transform: scaleY(1);
+  }
+  
+  .button-content {
+	position: relative;
+	z-index: 1;
+  }
+  /* .active{
+	color: rgb(73, 57, 113) !important;
+    background: white !important;
+
+} */
+  .button::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: scaleY(0);
+	transform-origin: bottom;
+	width: 100%;
+	height: inherit;
+	border-radius: inherit;
+	background: linear-gradient(
+	  82.3deg,
+	  rgba(150, 93, 233, 1) 10.8%,
+	  rgba(99, 88, 238, 1) 94.3%
+	);
+	transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .button:active {
+	scale: 0.9;
+  }
+  .nav-item:nth-of-type(1){
+    margin-top: 60px;
 }
+
+
+/* Nav Button End   */
+
+
+
+/* Adding notes Button start   */
+
+header .button {
+	position: relative;
+	width: 150px;
+	height: 40px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	border: 1px solid #34974d;
+	background-color: #3aa856;
+  }
+  
+ header .button,header .button__icon,header .button__text {
+	transition: all 0.3s;
+  }
+  
+ header .button .button__text {
+	transform: translateX(30px);
+	color: #fff;
+	font-weight: 600;
+  }
+  
+ header .button .button__icon {
+	position: absolute;
+	transform: translateX(109px);
+	height: 100%;
+	width: 39px;
+	background-color: #34974d;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  
+ header .button .svg {
+	width: 30px;
+	stroke: #fff;
+  }
+  
+header  .button:hover {
+	background: #34974d;
+  }
+  
+ header .button:hover .button__text {
+	color: transparent;
+  }
+  
+ header .button:hover .button__icon {
+	width: 148px;
+	transform: translateX(0);
+  }
+  
+header  .button:active .button__icon {
+	background-color: #2e8644;
+  }
+  
+ header .button:active {
+	border: 1px solid #2e8644;
+  }
+
+/* Adding notes Button start   */

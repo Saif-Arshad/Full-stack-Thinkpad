@@ -6,6 +6,7 @@ const UserSchema = mongoose.Schema({
   username:String,
   password:String,
   email:String,
+  Image:String,
   NoteList:[{
     type:mongoose.Schema.Types.ObjectId,
     ref:"Notes"
