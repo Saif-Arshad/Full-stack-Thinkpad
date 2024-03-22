@@ -147,7 +147,7 @@ router.get('/profile', isLogIn,async function(req, res, next) {
 });
 router.get('/profile/thisweek',isLogIn, async function(req, res, next) {
   const user= await userModel.findOne({username:req.session.passport.user });
-  const whichone= "This Week"
+  const whichone= "This Week Notes"
   const currentDate = new Date();
   const oneWeekAgo = new Date(currentDate);
         oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
@@ -159,7 +159,7 @@ router.get('/profile/thisweek',isLogIn, async function(req, res, next) {
 })
 router.get('/profile/today',isLogIn, async function(req, res, next) {
   const user = await userModel.findOne({ username: req.session.passport.user });
-  const whichone= "Today"
+  const whichone= "Today Notes"
   const currentDate = new Date();
   const startOfDay = new Date(currentDate);
   startOfDay.setHours(0, 0, 0, 0);
@@ -175,7 +175,7 @@ router.get('/profile/today',isLogIn, async function(req, res, next) {
 })
 router.get('/profile/thismonth',isLogIn, async function(req, res, next) {
   const user = await userModel.findOne({ username: req.session.passport.user });
-  const whichone= "This Month"     
+  const whichone= "This Month Notes"     
   const currentDate = new Date();
         const startOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
         const endOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0, 23, 59, 59, 999);

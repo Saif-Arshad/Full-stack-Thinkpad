@@ -32,6 +32,7 @@ body {
 	justify-content: center;
 	min-height: 100vh;
 	background: #212140;
+	width: 100%;
 }
 
 /* MAIN MENU */
@@ -39,12 +40,11 @@ body {
 main {
     display: flex;
 	min-height: 100vh;
-    /* flex-direction: column; */
+	margin: 10px 40px;
 	width: 100%;
-	margin:40px;
 	background: rgb(254, 254, 254);
 	box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset,
-		0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);
+	0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);
 	border-radius: 15px;
 	z-index: 10;
 }
@@ -53,12 +53,9 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-	/* overflow: hidden; */
     flex-wrap: wrap;
     width: 250px;
-/* /\    justify-content: space-between; */ 
 	background: rgb(73, 57, 113);
-	/* padding: 10px 10px; */
 	border-radius: 15px 0 0 15px;
 	font-family: "Roboto", sans-serif;
 }
@@ -107,92 +104,225 @@ main {
 
 
 
-/* .main-menu ul{
-    display: flex;
-} */
-
 .Main-content{
 	display: flex;
 	height: 100%;
 	width: 100%;
 	flex-direction: column;
-	/* align-items: center; */
-	/* justify-content: center; */
+	align-items: center;
+	justify-content: center;
 
 }
 
 /* Notes styles start  */
 
-.Main-content .NotesList{
+.Main-content .NotesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 60px;
+    margin-top: 30px;
+    width: 100%;
+}
+.Main-content .card {
+    padding: 1rem;
+    width: 300px; 
 	display: flex;
-	margin: 30px;
 	flex-direction: column;
-	/* align-items: center; */
-	justify-content: center;
-	width: 100%;
+	align-items: center;
+    height: auto; 
+    margin-right: 10px; 
+    margin-bottom: 10px; 
+    flex-shrink: 0; 
+	-webkit-border-radius: 50px;
+border-radius: 17px;
+background: #D1D8EC;
+-webkit-box-shadow: 4px 4px 14px #b2b8c9, -12px -12px 24px #f0f8ff;
+box-shadow: 12
 }
 .Main-content .NotesList div{
 	margin-bottom: 20px;
 }
-.NotesList button svg{
-	height:20px;
-	width:20px;
-	transition: all .5s;
 
-}
-.NotesList button svg:hover{
-	transform: scale(1.1);
-	 fill: #3e2183;
-}
-.NotesList button{
-	border: none;
-	background: transparent;
-	margin-left: 10px;
-	cursor: pointer;
-	margin-top: 10px;
-}
-.Main-content .NotesList{
-	width: 100%;
-}
-.Main-content .NotesList p{
-	color: #484b11;
-	width: 90%;
+.Main-content .NotesList .card p{
+	color: #3e2183;
 	font-size: 14px;
+	margin: 4px 0;
+	font-weight: 500;
 }
 .Main-content .NotesList h4{
 	font-size: 19px;
 	font-weight: 400;
 }
+.Main-content .NotesList .card-btn{
+	margin-top: 20px;
+	gap: 20px;
+	display: flex;
 
+}
 .Main-content .NotesList h1{
-	text-transform: uppercase;
-	font-size: 25px;
-	font-weight: 400;
+	text-transform: capitalize;
+	font-size: 22px;
+	display: inline-block;
+	font-weight: 600;
 }
 
 /* Notes styles end  */
+
+/* Delete button start   */
+
+
+.delete-button {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: rgb(20, 20, 20);
+	border: none;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+	cursor: pointer;
+	transition-duration: 0.3s;
+	overflow: hidden;
+	position: relative;
+  }
+  
+  .delete-svgIcon {
+	width: 15px;
+	transition-duration: 0.3s;
+  }
+  
+  .delete-svgIcon path {
+	fill: white;
+  }
+  
+  .delete-button:hover {
+	width: 90px;
+	border-radius: 50px;
+	transition-duration: 0.3s;
+	background-color: rgb(255, 69, 69);
+	align-items: center;
+  }
+  
+  .delete-button:hover .delete-svgIcon {
+	width: 20px;
+	transition-duration: 0.3s;
+	transform: translateY(60%);
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+  }
+  
+  .delete-button::before {
+	display: none;
+	content: "Delete";
+	color: white;
+	transition-duration: 0.3s;
+	font-size: 2px;
+  }
+  
+  .delete-button:hover::before {
+	display: block;
+	padding-right: 10px;
+	font-size: 13px;
+	opacity: 1;
+	transform: translateY(0px);
+	transition-duration: 0.3s;
+  }
+
+
+/* Delete button end   */
+
+/* Edit button start  */
+
+.edit-button {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: rgb(20, 20, 20);
+	border: none;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+	cursor: pointer;
+	transition-duration: 0.3s;
+	overflow: hidden;
+	position: relative;
+	text-decoration: none !important;
+  }
+  
+  .edit-svgIcon {
+	width: 17px;
+	transition-duration: 0.3s;
+  }
+  
+  .edit-svgIcon path {
+	fill: white;
+  }
+  
+  .edit-button:hover {
+	width: 120px;
+	border-radius: 50px;
+	transition-duration: 0.3s;
+	background-color: rgb(255, 69, 69);
+	align-items: center;
+  }
+  
+  .edit-button:hover .edit-svgIcon {
+	width: 20px;
+	transition-duration: 0.3s;
+	transform: translateY(60%);
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+  }
+  
+  .edit-button::before {
+	display: none;
+	content: "Edit";
+	color: white;
+	transition-duration: 0.3s;
+	font-size: 2px;
+  }
+  
+  .edit-button:hover::before {
+	display: block;
+	padding-right: 10px;
+	font-size: 13px;
+	opacity: 1;
+	transform: translateY(0px);
+	transition-duration: 0.3s;
+  }
+  
+
+
+/* Edit button start 
+ */
+
 
 /* header styles start  */
 
 .Main-content header {
 	width: 100%;
-	/* background: #000; */
 	display: flex;
-	flex-direction: row;
-	/* justify-content: center; */
-	/* align-items: center; */
+	justify-content: space-around;
+	align-items: center;
 	padding: 10px 0;
 }
 .Main-content h3{
 	font-size: 22px;
+	color: rgba(150, 93, 233, 1);
 	font-weight: 900;
 }
 
-	/* .Main-content header div{
-	/* margin-left: 40px; 
-	display: flex;
-	justify-content: center;
-} */
 
 /* header styles end  */
 
@@ -208,7 +338,10 @@ main {
 ul li{
 	list-style-type:  none; ;
 }
-.button {
+ul li:nth-of-type(1){
+	margin-top: 50px;
+}
+.nav-item .button {
 	position: relative;
 	overflow: hidden;
 	height: 3rem;
@@ -225,20 +358,16 @@ ul li{
 	transition: all 0.2s cubic-bezier(0.23, 1, 0.320, 1);
   }
   
-  .button:hover::before {
+.nav-item  .button:hover::before {
 	transform: scaleY(1);
   }
   
-  .button-content {
+.nav-item  .button-content {
 	position: relative;
 	z-index: 1;
   }
-  /* .active{
-	color: rgb(73, 57, 113) !important;
-    background: white !important;
 
-} */
-  .button::before {
+ .nav-item .button::before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -256,10 +385,10 @@ ul li{
 	transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
   }
   
-  .button:active {
+ .nav-item .button:active {
 	scale: 0.9;
   }
-  .nav-item:nth-of-type(1){
+ .nav-item .nav-item:nth-of-type(1){
     margin-top: 60px;
 }
 
@@ -277,8 +406,8 @@ header .button {
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	border: 1px solid #34974d;
-	background-color: #3aa856;
+	border: 1px solid rgba(150, 93, 233, 1);
+	background-color: rgba(150, 93, 233, 1);
   }
   
  header .button,header .button__icon,header .button__text {
@@ -296,7 +425,7 @@ header .button {
 	transform: translateX(109px);
 	height: 100%;
 	width: 39px;
-	background-color: #34974d;
+	background-color: #3e2183;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -308,7 +437,7 @@ header .button {
   }
   
 header  .button:hover {
-	background: #34974d;
+	background: rgba(150, 93, 233, 1);
   }
   
  header .button:hover .button__text {
@@ -321,11 +450,73 @@ header  .button:hover {
   }
   
 header  .button:active .button__icon {
-	background-color: #2e8644;
+	background-color: #3e2183;
   }
   
  header .button:active {
-	border: 1px solid #2e8644;
+	border: 1px solid #3e2183;
   }
 
 /* Adding notes Button start   */
+
+
+/* logout btn   */
+
+
+.Btn {
+	--black: #000000;
+	--ch-black: #141414;
+	--eer-black: #1b1b1b;
+	--night-rider: #2e2e2e;
+	--white: #ffffff;
+	--af-white: #f3f3f3;
+	--ch-white: #e1e1e1;
+	display: flex;
+	align-items: center;
+	margin-top: 30px;
+	justify-content: flex-start;
+	width: 125px;
+	height: 45px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	position: relative;
+	/* overflow: hidden; */
+	transition: all 1s ease-out;
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+	background-color: var(--af-white);
+  }
+  
+  /* plus sign */
+  .sign {
+	width: 100%;
+	display: flex;
+	padding-left: 20px;
+	align-items: center;
+	justify-content: center;
+  }
+  .Btn:hover{
+	background: red;
+  }
+  .Btn:hover .text{
+	color: white;
+  }
+
+  .sign svg {
+	width: 17px;
+  }
+  
+  .sign svg path {
+	fill: var(--night-rider);
+  }
+  .text {
+	width: 70%;
+	opacity: 1;
+	color: var(--night-rider);
+	padding-right: 20px;
+	transition: all 0.7s ease-out;
+	font-size: 1.2em;
+	font-weight: 600;
+
+  }
+
