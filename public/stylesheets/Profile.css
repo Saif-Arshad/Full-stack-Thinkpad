@@ -35,6 +35,10 @@ header .logo img{
     /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); */
     overflow: hidden;
   }
+  .Buttons .btn{
+    width: 150px;
+    border-radius: 20px;
+  }
   
   .btn span {
     font-size: 12px;
@@ -73,7 +77,7 @@ header .logo img{
     /* background: #c37575; */
     height: 100%;
     min-width: 100%;
-    padding: 5rem 0 3.5rem;
+    padding: 5rem 0 1.5rem;
 }
 
 h1{
@@ -133,60 +137,6 @@ footer .social{
 
 /* body btn  */
 
-.cta {
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
-  
-  .cta span {
-    padding-bottom: 7px;
-    letter-spacing: 1px;
-    font-size: 18px;
-    color: #00154c;
-    font-weight: 800;
-    padding-right: 15px;
-    text-transform: uppercase;
-  }
-  
-  .cta svg {
-    transform: translateX(-8px);
-    fill: #00154c !important;
-    transition: all 0.3s ease;
-  }
-  
-  .cta:hover svg {
-    transform: translateX(0);
-  }
-  
-  .cta:active svg {
-    transform: scale(0.9);
-  }
-  
-  .hover-underline-animation {
-    position: relative;
-    color: #00154c;
-    padding-bottom: 20px;
-  }
-  
-  .hover-underline-animation:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #00154c;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-  
-  .cta:hover .hover-underline-animation:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-  
 
 /* media quries  */
 
