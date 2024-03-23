@@ -26,20 +26,28 @@ router.post('/create',isLogIn, async function(req,res){
     })
 
     // registration route  
-    router.post('/register',function(req,res){
-      var userdata= new userModel({
-        username: req.body.username,
-        email: req.body.email
-      })
-    
-      userModel.register(userdata, req.body.password)
-      .then(function(registereduser){
-        passport.authenticate('local')(req,res,()=>{
-          res.redirect('/profile')
-        })
-      })
-    
-    })
+    router.post('/register', async function(req, res) {
+      try {
+          const existingUser = await userModel.findOne({ username: req.body.username });
+          if (existingUser) {
+              return res.status(400).send("This username already exists");
+          }
+          
+          const userData = new userModel({
+              username: req.body.username,
+              Name: req.body.name,
+              email: req.body.email
+          });
+          
+          const registeredUser = await userModel.register(userData, req.body.password);
+          passport.authenticate('local')(req, res, () => {
+              res.redirect('/profile');
+          });
+      } catch (error) {
+          console.error(error);
+          res.status(500).send("An error occurred");
+      }
+  })
 
 
 // login  route  
@@ -105,7 +113,6 @@ router.get('/delete/:id',isLogIn, async function(req, res, next) {
   });
 
 router.post("/update",isLogIn,async function(req, res){
-  // const NoteId= await NotesModel.findOne({_id:req.session.passport.Id });
     await NotesModel.updateOne({_id: req.body.Id},
       {
         title: req.body.Title,
@@ -115,24 +122,27 @@ router.post("/update",isLogIn,async function(req, res){
     res.redirect('/Profile')
 })
 router.post("/updateprofiles",isLogIn,upload.single("image"),async function(req, res){
-     
-  const profileUpdate= await userModel.findOneAndUpdate(
-      {username:req.session.passport.user },
-      {
-        username: req.body.username,
-      bio:req.body.Bio,
-    },
-    {new:true}
-    );
+  const username = req.session.passport.user;
+    const bio = req.body.Bio;
+    const Name = req.body.name; 
+    let image;
 
-    profileUpdate.Image=req.file.filename;
-   
-    await profileUpdate.save()
+    if (req.file) {
+        image = req.file.filename;
+    } else {
+        const user = await userModel.findOne({ username });
+        image = user.Image;
+    }
+
+    const profileUpdate = await userModel.findOneAndUpdate(
+        { username },
+        { $set: { Name, bio, Image: image }},
+        { new: true }
+    );
     res.redirect('/profile')
 });
 
 router.get('/Post', isLogIn, async function(req, res, next) {
-  const user= await userModel.findOne({username:req.session.passport.user });
 
   res.render('Post');
 });

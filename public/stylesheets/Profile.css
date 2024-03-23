@@ -73,7 +73,7 @@ header .logo img{
     /* background: #c37575; */
     height: 100%;
     min-width: 100%;
-    padding: 5rem 0;
+    padding: 5rem 0 3.5rem;
 }
 
 h1{
@@ -86,29 +86,107 @@ p{
     font-size: 22px;
     margin-left: 25%;
     margin-top: 40px;
+    font-weight: 100;
     text-align: center;
     width: 55%;
 }
 .Main .Buttons{
-    margin-left: 40%;
-    margin-top: 35px;
+    margin-left: 43%;
+    margin-top: 40px;
 }
 footer{
     display: flex;
     padding: 1rem 0;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-footer a {
-    margin-left: 10px;
+a{
     text-decoration-line: none;
+
+}
+footer div:nth-of-type(2) a {
+    margin-left: 10px;
     font-size: 20px;
     color: #23487f;
 }
-footer a:hover {
+footer div:nth-of-type(2) a:hover {
     text-decoration-line: underline;
 }
+.social svg{
+    height: 30px;
+    margin-left: 8px;
+    fill: black !important;
+    transition: all .3s;
+}
+.social svg:hover{
+    cursor: pointer;
+    fill: #00154c !important;
+    transform: scale(1.05);
+}
+footer .social{
+    /* display: flex; */
+    margin-bottom: 10px;
+    gap: 30px;
+}
 
+
+/* body btn  */
+
+.cta {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .cta span {
+    padding-bottom: 7px;
+    letter-spacing: 1px;
+    font-size: 18px;
+    color: #00154c;
+    font-weight: 800;
+    padding-right: 15px;
+    text-transform: uppercase;
+  }
+  
+  .cta svg {
+    transform: translateX(-8px);
+    fill: #00154c !important;
+    transition: all 0.3s ease;
+  }
+  
+  .cta:hover svg {
+    transform: translateX(0);
+  }
+  
+  .cta:active svg {
+    transform: scale(0.9);
+  }
+  
+  .hover-underline-animation {
+    position: relative;
+    color: #00154c;
+    padding-bottom: 20px;
+  }
+  
+  .hover-underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #00154c;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .cta:hover .hover-underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
 
 /* media quries  */
 

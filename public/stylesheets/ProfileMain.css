@@ -53,8 +53,10 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+	position: relative;
     flex-wrap: wrap;
     width: 250px;
+	transition: all 1s ease-in-out;
 	background: rgb(73, 57, 113);
 	border-radius: 15px 0 0 15px;
 	font-family: "Roboto", sans-serif;
@@ -322,7 +324,23 @@ box-shadow: 12
 	color: rgba(150, 93, 233, 1);
 	font-weight: 900;
 }
-
+header img{
+	height: 40px;
+	object-fit: cover;
+	width: 40px;
+	border-radius: 50%;
+	display: none;
+}
+.cencel{
+	position: absolute;
+	right: 15px;
+	top: 10px;
+	display: none;
+}
+.main-menu .cencel svg{
+	height: 25px;
+	width: 25px;
+}
 
 /* header styles end  */
 
@@ -464,6 +482,7 @@ header  .button:active .button__icon {
 
 
 .Btn {
+	margin-bottom: 40px;
 	--black: #000000;
 	--ch-black: #141414;
 	--eer-black: #1b1b1b;
@@ -520,3 +539,59 @@ header  .button:active .button__icon {
 
   }
 
+
+
+
+/* Media Queries   */
+
+@media screen and (max-width: 899px) {
+.Main-content .card{
+	width: 250px;
+}
+.Main-content .NotesList .card p{
+	font-size: 12px !important;
+}
+.Main-content .NotesList h4{
+	font-size: 15px;
+}
+.Main-content .NotesList .card-btn{
+	margin-top: 20px;
+	gap: 15px;
+	display: flex;
+
+}
+.Main-content .NotesList h1{
+	font-size: 18px;
+}
+}
+@media screen  and (max-width: 476px) {
+
+.main-menu {
+	position: absolute;
+	z-index: 10;
+	display: none;
+}
+header img{
+	display: inline-block;
+}
+header{
+	flex-direction: column;
+}
+header div{
+	display: flex;
+	align-items: center;
+	gap: 60px;
+}
+header .button{
+	margin-top: 30px;
+}
+.cencel{
+	display: inline;
+}
+}
+
+@media screen  and (max-width: 298px) {
+	.Main-content .NotesList {
+		margin-left: 20px;}
+
+}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile-Edit</title>
+    <title>Profile Edit</title>
     <link rel="stylesheet" href="/stylesheets/LoginForm.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
             </div>
             <div class="input-group">
                 <label for="username">Name</label>
-                <input type="text" value="<%=User.username%>" name="username" id="username" placeholder="">
+                <input type="text" value="<%=User.Name%>" name="name" id="username" placeholder="">
             </div>
          
             <div class="input-group">
@@ -25,12 +25,7 @@
             </div>
             <button class="sign">Edit Now</button>
         </form>
-        <script>
-            let fileInput = document.getElementById("fileInput");
-            fileInput. addEventListener("change", function () { if (fileInput. files. length == 0) { 
-                alert("You can't Edit your Profile if you are not giving Image")
-            }}); 
-        </script>
+
 
     </div>
 </body>
