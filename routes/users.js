@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const plm = require('passport-local-mongoose')
-mongoose.connect("mongodb:https://thinkpad-note.vercel.app/NoteApp")
+mongoose.connect("mongodb://127.0.0.1:27017/NoteApp")
 
 const UserSchema = mongoose.Schema({
   username:String,

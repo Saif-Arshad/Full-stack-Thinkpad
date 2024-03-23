@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb:https://thinkpad-note.vercel.app/NoteApp")
 
 const UserSchema = mongoose.Schema({
   userName:{
