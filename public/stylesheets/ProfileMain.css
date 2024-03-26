@@ -139,7 +139,7 @@ main {
 	-webkit-border-radius: 50px;
 border-radius: 17px;
 background: #D1D8EC;
--webkit-box-shadow: 4px 4px 14px #b2b8c9, -12px -12px 24px #f0f8ff;
+-webkit-box-shadow: 4px 4px 14px #b2b8c9, -4px -4px 14px #f0f8ff;
 box-shadow: 12
 }
 .Main-content .NotesList div{
