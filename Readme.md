@@ -1,10 +1,6 @@
+## ThinkPad
 
-![Logo](data:image/png;base64,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)
-
-
-
-
-A web app to manage notes using Nodejs, and Mongodb as database, plus authentication with passportjs
+A web app to manage notes using Nodejs, and MongoDB as a database, plus authentication with passportJs
 
 
 
@@ -12,13 +8,16 @@ A web app to manage notes using Nodejs, and Mongodb as database, plus authentica
 
 **Client:** ejs, CSS
 
-**Server:** Node, Express,Mongodb
+**Server:** Node, Express, MongoDB
 
 
 ## Features
 
 - CRUD Operations: create/read/update/delete Notes
-- Allows a user to do login and save his personal notes
-- Allow a user to edit his personal profile Image ,Name and Bio 
+- Allows a user to log in and save his notes
+- Allow a user to edit his personal profile Image, Name and Bio 
 - Responsive for all devices
 
+## How it work
+
+[Click to see video](https://www.linkedin.com/posts/saif-rehman-professional_i-have-just-completed-the-thinkpad-project-activity-7179582908934856705-f9Ni?utm_source=share&utm_medium=member_desktop)
